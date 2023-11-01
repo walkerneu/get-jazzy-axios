@@ -10,7 +10,12 @@
 </head>
 <body>
     <h1>Get Jazzy</h1>
-
+    <form>
+        <input placeholder="Artist Name" type="text" id="artistInput">
+        <input placeholder="Year Born" type="text" id="birthInput">
+        <input placeholder="Year of Death" type="text" id="deathInput">
+        <button onclick="onButtonClick (event)" id="submit-button">Submit</button>
+    </form>
     <h2>Famous Jazz Artists</h2>
     <table>
         <thead>
@@ -26,9 +31,8 @@
     <form>
         <input placeholder="Song Title" type="text" id="songTitleInput">
         <input placeholder="Artist Name" type="text" id="artistNameInput">
-        <button onclick="onButtonClick (event)" id="submit-button">Submit</button>
+        <button onclick="onSongClick (event)" id="submit-button">Submit</button>
     </form>
-
     <h2>Famous Jazz Songs</h2>
     <table>
         <thead>

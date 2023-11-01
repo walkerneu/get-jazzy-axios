@@ -28,7 +28,7 @@ function onReady() {
         });
 
     // TODO Add Axios request for /songs and display on DOM
-}
+    }
 
     axios({
         method: "GET",
@@ -50,19 +50,29 @@ function onReady() {
         alert('Something bad happened! Check the console for more details.')
     })
 
-function onButtonClick (event){
+function onSongClick (event){
     event.preventDefault();
     let songName = document.getElementById("songTitleInput").value;
     let artistName = document.getElementById("artistNameInput").value;
     let songObject = {
-                        title: `${songName}`,
-                        artist: `${artistName}`
+                        title: songName,
+                        artist: artistName
                     };
     console.log(songObject);
     document.getElementById("songTitleInput").value = '';
     document.getElementById("artistNameInput").value = '';
-    return songObject;
-
+    axios({
+        method: 'POST',
+        url: '/song',
+        data: songObject
+    }).then((response) => {
+        let songs = response.data
+    })
 }
+
+function renderValues () {
+    
+}
+
 
 onReady();

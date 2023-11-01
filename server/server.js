@@ -45,6 +45,7 @@ const songListArray = [
     },
 ];
 
+app.use(express.json());
 app.use(express.static('server/public'));
 
 app.get('/artist', (req, res) => {
@@ -56,6 +57,15 @@ app.get('/song', (req, res) => {
 });
 
 // TODO - Add GET for songs
+
+app.post('/song', (req, res) => {
+    console.log('POST /song received a request!');
+    console.log('req.body', req.body);
+    let newSong = req.body;
+    songListArray.push(newSong);
+    res.sendStatus(201);
+    
+})
 
 app.listen(PORT, () => {
     console.log('listening on port', PORT)
